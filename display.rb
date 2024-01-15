@@ -2,14 +2,33 @@
 
 # Provides methods to create Mastermind game board
 module Display
-  def create_board
+  def pegs(number)
     {
-      '1' => "\e107m 1 \e0m",
-      '2' => "\e105m 2 \e0m",
-      '3' => "\e103m 3 \e0m",
-      '4' => "\e101m 4 \e0m",
-      '5' => "\e106m 5 \e0m",
-      '6' => "\e102m 6 \e0m"
-    }
+      1 => "\e[107m 1 \e[0m ",
+      2 => "\e[105m 2 \e[0m ",
+      3 => "\e[103m 3 \e[0m ",
+      4 => "\e[101m 4 \e[0m ",
+      5 => "\e[106m 5 \e[0m ",
+      6 => "\e[102m 6 \e[0m ",
+    }[number]
+  end
+
+  def clues(clue)
+    {
+      'o' => " \u25CB ", # good_color_wrong_position
+      'x' => " \u25CF " # good_color_good_position
+    }[clue]
+  end
+
+  def show_code(array)
+    array.each do |number|
+      print pegs(number)
+    end
+  end
+
+  def show_clues(array)
+    array.each do |clues|
+      print clues(clues)
+    end
   end
 end
