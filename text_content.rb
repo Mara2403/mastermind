@@ -5,13 +5,14 @@ module TextContent
   def formatting(style, text)
     {
       'underline' => "\e[4m#{text}\e[0m",
-      'bold' => "\e[1m#{text}\e[0m",
+      'bold' => "\e[1m#{text}\e[0m"
     }[style]
   end
 
   def ingame_text(description)
     {
       'user_choice' => 'Choose 1 if you want to be the code BREAKER or 2 if you want to be the code MAKER',
+      'warning_mode' => 'Please, choose 1 or 2'
     }[description]
   end
 
