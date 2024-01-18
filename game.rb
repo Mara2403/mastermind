@@ -2,6 +2,7 @@
 
 require_relative 'text_content'
 require_relative 'display'
+require_relative 'human_player'
 
 # Provides game logic
 class Game
@@ -14,7 +15,7 @@ class Game
     mode = choose_mode
     human_player if mode == '1'
     computer_player if mode == '2'
-    # show_code([1,2,3,4,5,6])
+
     # show_clues(%w[x x o o])
   end
 
@@ -22,13 +23,13 @@ class Game
     mode = gets.chomp
     unless %w[1 2].include?(mode)
       puts ingame_text('warning_mode')
-      choose_mode
+      return choose_mode
     end
     mode
   end
 
   def human_player
-    puts 'Human Player'
+    HumanPlayer.new.play_game
   end
 
   def computer_player
