@@ -15,10 +15,18 @@ class HumanPlayer
   end
 
   def play_game
-    # puts player_instructions
+    puts player_instructions
     puts "# Computer generated #{@code_to_break}" # to be removed later
-    user_guess = gets.chomp.split('').map(&:to_i)
-    show_code(user_guess)
-    compare_codes(@code_to_break, user_guess)
+    # adding 12 turn loop
+    12.times do |turn|
+      puts "Turn #{turn +1}. #{ingame_text('enter_4_numbers')}"
+      user_guess = gets.chomp.split('').map(&:to_i)
+      show_code(user_guess)
+      if game_won?(@code_to_break, user_guess) # || user_wants_to_quit?
+        puts ingame_text('user_won')
+        break
+      end
+      compare_codes(@code_to_break, user_guess)
+    end
   end
 end

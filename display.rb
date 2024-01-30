@@ -30,5 +30,6 @@ module Display
     array.each do |clues|
       print clues(clues)
     end
+    puts
   end
 end

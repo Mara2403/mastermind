@@ -15,8 +15,6 @@ class Game
     mode = choose_mode
     human_player if mode == '1'
     computer_player if mode == '2'
-
-    # show_clues(%w[x x o o])
   end
 
   def choose_mode
