@@ -13,9 +13,10 @@ module TextContent
     {
       'user_choice' => 'Choose 1 if you want to be the code BREAKER or 2 if you want to be the code MAKER',
       'warning_mode' => 'Please, choose 1 or 2',
-      'user_won' => 'You won!',
       'enter_4_numbers' => 'Enter 4 numbers from 1 to 6:',
-      'game_won' => 'YOU WON! You cracked the code. Congratulations!'
+      'user_won' => 'YOU WON! You cracked the code. Congratulations!',
+      'wrong_input' => 'Wrong input. Please, enter four numbers from 1 to 6: ',
+      'break' => "Thanks for playing!"
     }[description]
   end
 

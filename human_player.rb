@@ -11,7 +11,7 @@ class HumanPlayer
   include GameLogic
 
   def initialize
-    @code_to_break = 4.times.map{ rand(1..6) }
+    @code_to_break = 4.times.map { rand(1..6) }
   end
 
   def play_game
@@ -19,8 +19,15 @@ class HumanPlayer
     puts "# Computer generated #{@code_to_break}" # to be removed later
     # adding 12 turn loop
     12.times do |turn|
-      puts "Turn #{turn +1}. #{ingame_text('enter_4_numbers')}"
-      user_guess = gets.chomp.split('').map(&:to_i)
+      puts "Turn #{turn + 1}. #{ingame_text('enter_4_numbers')}"
+      # method to get 4 numbers from the user:
+      user_guess = user_four_numbers
+      # quit is the input is 'q'
+      if user_guess == 'q'
+        print ingame_text('break')
+        break
+      end
+      user_guess = user_guess.split('').map(&:to_i)
       show_code(user_guess)
       if game_won?(@code_to_break, user_guess) # || user_wants_to_quit?
         puts ingame_text('user_won')
