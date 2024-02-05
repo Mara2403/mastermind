@@ -16,7 +16,9 @@ module TextContent
       'enter_4_numbers' => 'Enter 4 numbers from 1 to 6:',
       'user_won' => 'YOU WON! You cracked the code. Congratulations!',
       'wrong_input' => 'Wrong input. Please, enter four numbers from 1 to 6: ',
-      'break' => "Thanks for playing!"
+      'break' => 'Thanks for playing!',
+      'play_again' => 'Would you like to play again? y/n',
+      'y/n_only' => 'Wrong input. Please choose y or n'
     }[description]
   end
 
@@ -40,19 +42,19 @@ module TextContent
   def player_instructions
     <<~HEREDOC
 
-        You are #{formatting('underline', 'the code breaker')}!
+      You are #{formatting('underline', 'the code breaker')}!
 
-         The code consists of 4 pegs, each with a different color and a number from 1 to 6.
+        The code consists of 4 pegs, each with a different color and a number from 1 to 6.
 
-        You have 12 turns to decipher the code. After each guess, you will receive clues to guide you. Here's what the clues mean:
+      You have 12 turns to decipher the code. After each guess, you will receive clues to guide you. Here's what the clues mean:
 
-        #{formatting('bold', 'Filled Circle:')} Indicates a peg with the correct color and in the right position.
+      #{formatting('bold', 'Filled Circle:')} Indicates a peg with the correct color and in the right position.
 
-        #{formatting('bold', 'Empty Circle:')} Represents a peg with the correct color but in the wrong position.
+      #{formatting('bold', 'Empty Circle:')} Represents a peg with the correct color but in the wrong position.
 
-          Best of luck!
+        Best of luck!
 
-        Let's begin. Try to guess the code.
+      Let's begin. Try to guess the code.
     HEREDOC
   end
 end

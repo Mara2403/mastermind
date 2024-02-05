@@ -24,13 +24,16 @@ class HumanPlayer
       user_guess = user_four_numbers
       # quit is the input is 'q'
       if user_guess == 'q'
-        print ingame_text('break')
+        puts ingame_text('break')
         break
       end
       user_guess = user_guess.split('').map(&:to_i)
       show_code(user_guess)
-      if game_won?(@code_to_break, user_guess) # || user_wants_to_quit?
+      if game_won?(@code_to_break, user_guess)
         puts ingame_text('user_won')
+        user_choice = play_again?
+        choose_mode if user_choice == 'y'
+        puts ingame_text('break') if user_choice == 'n'
         break
       end
       compare_codes(@code_to_break, user_guess)
