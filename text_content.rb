@@ -18,7 +18,8 @@ module TextContent
       'wrong_input' => 'Wrong input. Please, enter four numbers from 1 to 6: ',
       'break' => 'Thanks for playing!',
       'play_again' => 'Would you like to play again? y/n',
-      'y/n_only' => 'Wrong input. Please choose y or n'
+      'y/n_only' => 'Wrong input. Please choose y or n',
+      'computer_won' => 'Computer cracked the code!'
     }[description]
   end
 
@@ -57,4 +58,11 @@ module TextContent
       Let's begin. Try to guess the code.
     HEREDOC
   end
+end
+
+def computer_game_instructions
+  <<~HEREDOC
+
+    Please, choose four numbers from 1 to 6 to create your secret code. The computer will try to figure out what that code is within 12 turns. Each time the computer makes a guess, he will be provided with feedback to help it refine its strategy.
+  HEREDOC
 end

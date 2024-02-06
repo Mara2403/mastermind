@@ -73,6 +73,6 @@ module GameLogic
   end
 
   def computer_player
-    puts 'Computer Player'
+    ComputerPlayer.new.play_game
   end
 end
