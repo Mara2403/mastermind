@@ -75,4 +75,46 @@ module GameLogic
   def computer_player
     ComputerPlayer.new.play_game
   end
+
+  # methods for computer player:
+  def feedback_matches_array(code, guess)
+    temp_code = code.clone
+    temp_guess = guess.clone
+
+    exact_good(temp_code, temp_guess)
+    good_guess_wrong_position(temp_code, temp_guess)
+
+    return temp_guess
+  end
+
+  def use_feedback(possible_combinations, guess, feedback_array)
+    exact_good = 0
+    wrong_position = 0
+
+    feedback_array.each do |item|
+      exact_good += 1 if item == 'x'
+      wrong_position += 1 if item == 'o'
+    end
+
+    # Filter possible combinations based on feedback
+    filtered_combinations = possible_combinations.select do |possible_code|
+      code_exact_good = 0
+      code_wrong_position = 0
+
+      # Calculate exact matches
+      guess.each_with_index do |num, index|
+        code_exact_good += 1 if num == possible_code[index]
+      end
+      # Calculate wrong position matches
+      guess.each do |num|
+        code_wrong_position += 1 if possible_code.include?(num)
+      end
+      # Don't count exact good as good but with wrong position
+      code_wrong_position -= code_exact_good
+
+      # Check if the counts match the feedback
+      code_exact_good == exact_good && code_wrong_position == wrong_position
+    end
+    return filtered_combinations
+  end
 end
