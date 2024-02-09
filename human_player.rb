@@ -16,7 +16,6 @@ class HumanPlayer
 
   def play_game
     puts player_instructions
-    puts "# Computer generated #{@code_to_break}" # to be removed later
     # adding 12 turn loop
     12.times do |turn|
       puts "Turn #{turn + 1}. #{ingame_text('enter_4_numbers')}"

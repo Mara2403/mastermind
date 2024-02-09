@@ -9,6 +9,7 @@ module TextContent
     }[style]
   end
 
+  # rubocop:disable Metrics/MethodLength
   def ingame_text(description)
     {
       'user_choice' => 'Choose 1 if you want to be the code BREAKER or 2 if you want to be the code MAKER',
@@ -19,9 +20,11 @@ module TextContent
       'break' => 'Thanks for playing!',
       'play_again' => 'Would you like to play again? y/n',
       'y/n_only' => 'Wrong input. Please choose y or n',
-      'computer_won' => 'Computer cracked the code!'
+      'computer_won' => 'Computer cracked the code!',
+      'computer_lost' => "Computer couldn't crack the code"
     }[description]
   end
+  # rubocop:enable Metrics/MethodLength
 
   def game_intro
     <<~HEREDOC
